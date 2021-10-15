@@ -17,11 +17,13 @@ function closeNav() {
 
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
+  {% for f in Sidebar_Files %}
+    <a href="{{ url_for('page_selected', url_topic=topic, url_page=f )  }}">{{ f }} </a>
+  {% endfor %}
 </div>
+
+
+
 
 <div id="main">
   <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
