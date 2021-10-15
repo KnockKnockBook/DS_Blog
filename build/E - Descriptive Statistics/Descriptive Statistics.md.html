@@ -1,3 +1,6 @@
+
+me likes the jazz and snappy snaps
+<div id="main">
 <!doctype html>
 <html lang="en">
   <head>
@@ -79,6 +82,73 @@
       .codehilite .vi { color: #19177C } /* Name.Variable.Instance */
       .codehilite .vm { color: #19177C } /* Name.Variable.Magic */
       .codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+
+      body {
+        font-family: "Lato", sans-serif;
+      }
+
+      .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+      }
+
+      .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+
+      .sidebar a:hover {
+        color: #f1f1f1;
+      }
+
+      .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+      }
+
+      .openbtn {
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #111;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+      }
+
+      .openbtn:hover {
+        background-color: #444;
+      }
+
+      #main {
+        transition: margin-left .5s;
+        padding: 16px;
+      }
+
+      /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+      @media screen and (max-height: 450px) {
+        .sidebar {padding-top: 15px;}
+        .sidebar a {font-size: 18px;}
+      }
+      </style>
+
+
     </style>
     </head>
 
@@ -98,19 +168,19 @@
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
 
             
-            <li><a style="text-decoration:none" href="../A_Home.html" > &nbsp; A_Home &nbsp; </a></li>  <!--&nbsp; is a space -->
+            <li><a style="text-decoration:none" href="/A_Home.html" > &nbsp; A_Home &nbsp; </a></li>  <!--&nbsp; is a space -->
             
-            <li><a style="text-decoration:none" href="../B_Import%20Export.html" > &nbsp; B_Import Export &nbsp; </a></li>  <!--&nbsp; is a space -->
+            <li><a style="text-decoration:none" href="/B_Import%20Export.html" > &nbsp; B_Import Export &nbsp; </a></li>  <!--&nbsp; is a space -->
             
-            <li><a style="text-decoration:none" href="../C%20-%20Data%20Processing.html" > &nbsp; C - Data Processing &nbsp; </a></li>  <!--&nbsp; is a space -->
+            <li><a style="text-decoration:none" href="/C%20-%20Data%20Processing.html" > &nbsp; C - Data Processing &nbsp; </a></li>  <!--&nbsp; is a space -->
             
-            <li><a style="text-decoration:none" href="../D%20-%20Data%20Types.html" > &nbsp; D - Data Types &nbsp; </a></li>  <!--&nbsp; is a space -->
+            <li><a style="text-decoration:none" href="/D%20-%20Data%20Types.html" > &nbsp; D - Data Types &nbsp; </a></li>  <!--&nbsp; is a space -->
             
-            <li><a style="text-decoration:none" href="../E%20-%20Descriptive%20Statistics.html" > &nbsp; E - Descriptive Statistics &nbsp; </a></li>  <!--&nbsp; is a space -->
+            <li><a style="text-decoration:none" href="/E%20-%20Descriptive%20Statistics.html" > &nbsp; E - Descriptive Statistics &nbsp; </a></li>  <!--&nbsp; is a space -->
             
-            <li><a style="text-decoration:none" href="../F%20-%20SQL%20Databases.html" > &nbsp; F - SQL Databases &nbsp; </a></li>  <!--&nbsp; is a space -->
+            <li><a style="text-decoration:none" href="/F%20-%20SQL%20Databases.html" > &nbsp; F - SQL Databases &nbsp; </a></li>  <!--&nbsp; is a space -->
             
-            <li><a style="text-decoration:none" href="../G%20-%20Useful%20Snippets.html" > &nbsp; G - Useful Snippets &nbsp; </a></li>  <!--&nbsp; is a space -->
+            <li><a style="text-decoration:none" href="/G%20-%20Useful%20Snippets.html" > &nbsp; G - Useful Snippets &nbsp; </a></li>  <!--&nbsp; is a space -->
             
 
 
@@ -140,77 +210,33 @@
       
 
 
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  font-family: "Lato", sans-serif;
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
 }
 
-.sidenav {
-  height: 100%;
-  width: 160px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #e2eaeb;
-  overflow-x: hidden;
-  padding-top: 20px;
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
 }
+</script>
 
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #000202;
-  display: block;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
-</head>
-<body>
-
-
-
-
-
-  <div class="sidenav">
-
-    
-
-       <a href="../E%20-%20Descriptive%20Statistics/Descriptive%20Statistics.md.html" > Descriptive Statistics.md </a>
-
-    
-
-  </div>
-
-
-
-
-<!--
-<div class="sidenav">
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#clients">Clients</a>
-  <a href="#contact">Contact</a>
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  
+    <a href="/E%20-%20Descriptive%20Statistics/Descriptive%20Statistics.md.html">Descriptive Statistics.md </a>
+  
 </div>
--->
+
+
+
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
+</div>
+
 
 <!-- Here's where the blog content will go -->
       
@@ -218,7 +244,7 @@ body {
 
 
 
-<div>
+
  <!--&lt;h3&gt;Descriptive Statistics&lt;/h3&gt;
 &lt;p&gt;~~here is the content~~&lt;/p&gt;
 &lt;p&gt;:::python
@@ -287,7 +313,7 @@ body {
 <div class="codehilite"><pre><span></span><code><span class="c1"># count number of distinct values in column &#39;B&#39;</span>
 <span class="n">DF</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">)[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
 </code></pre></div>
-</div>
+
 
 
 
@@ -302,7 +328,7 @@ body {
 <!-- Here's the footer -->
 <footer class="footer mt-auto py-3 bg-light">
   <div class="container">
-    <span class="text-muted">Footer Content goes here.</span>
+    <span class="text-muted">Byte sized data science recipies. 100+ must try analytics techniques that are quick and easy, so prep your (data) table, and get ready to bring home the bacon</span>
   </div>
 </footer>
 

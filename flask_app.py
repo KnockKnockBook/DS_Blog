@@ -123,6 +123,8 @@ def selected_folder_filters(content_list, selected_folder_name):
 
 app = Flask(__name__
           , template_folder = path_templates)
+
+app.config['TEMPLATES_AUTO_RELOAD'] =True
 Markdown(app)  # construct a 'Markdown' so that you can use markdown
 
 
