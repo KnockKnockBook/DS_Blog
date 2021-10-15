@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- For highlighting your code blocks -->
+    <style>
+      .codehilite .hll { background-color: #ffffcc }
+      .codehilite  { background: #f8f8f8; }
+      .codehilite .c { color: #408080; font-style: italic } /* Comment */
+      .codehilite .err { border: 1px solid #FF0000 } /* Error */
+      .codehilite .k { color: #008000; font-weight: bold } /* Keyword */
+      .codehilite .o { color: #666666 } /* Operator */
+      .codehilite .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+      .codehilite .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+      .codehilite .cp { color: #BC7A00 } /* Comment.Preproc */
+      .codehilite .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+      .codehilite .c1 { color: #408080; font-style: italic } /* Comment.Single */
+      .codehilite .cs { color: #408080; font-style: italic } /* Comment.Special */
+      .codehilite .gd { color: #A00000 } /* Generic.Deleted */
+      .codehilite .ge { font-style: italic } /* Generic.Emph */
+      .codehilite .gr { color: #FF0000 } /* Generic.Error */
+      .codehilite .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+      .codehilite .gi { color: #00A000 } /* Generic.Inserted */
+      .codehilite .go { color: #888888 } /* Generic.Output */
+      .codehilite .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+      .codehilite .gs { font-weight: bold } /* Generic.Strong */
+      .codehilite .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+      .codehilite .gt { color: #0044DD } /* Generic.Traceback */
+      .codehilite .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+      .codehilite .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+      .codehilite .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+      .codehilite .kp { color: #008000 } /* Keyword.Pseudo */
+      .codehilite .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+      .codehilite .kt { color: #B00040 } /* Keyword.Type */
+      .codehilite .m { color: #666666 } /* Literal.Number */
+      .codehilite .s { color: #BA2121 } /* Literal.String */
+      .codehilite .na { color: #7D9029 } /* Name.Attribute */
+      .codehilite .nb { color: #008000 } /* Name.Builtin */
+      .codehilite .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+      .codehilite .no { color: #880000 } /* Name.Constant */
+      .codehilite .nd { color: #AA22FF } /* Name.Decorator */
+      .codehilite .ni { color: #999999; font-weight: bold } /* Name.Entity */
+      .codehilite .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+      .codehilite .nf { color: #0000FF } /* Name.Function */
+      .codehilite .nl { color: #A0A000 } /* Name.Label */
+      .codehilite .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+      .codehilite .nt { color: #008000; font-weight: bold } /* Name.Tag */
+      .codehilite .nv { color: #19177C } /* Name.Variable */
+      .codehilite .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+      .codehilite .w { color: #bbbbbb } /* Text.Whitespace */
+      .codehilite .mb { color: #666666 } /* Literal.Number.Bin */
+      .codehilite .mf { color: #666666 } /* Literal.Number.Float */
+      .codehilite .mh { color: #666666 } /* Literal.Number.Hex */
+      .codehilite .mi { color: #666666 } /* Literal.Number.Integer */
+      .codehilite .mo { color: #666666 } /* Literal.Number.Oct */
+      .codehilite .sa { color: #BA2121 } /* Literal.String.Affix */
+      .codehilite .sb { color: #BA2121 } /* Literal.String.Backtick */
+      .codehilite .sc { color: #BA2121 } /* Literal.String.Char */
+      .codehilite .dl { color: #BA2121 } /* Literal.String.Delimiter */
+      .codehilite .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+      .codehilite .s2 { color: #BA2121 } /* Literal.String.Double */
+      .codehilite .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+      .codehilite .sh { color: #BA2121 } /* Literal.String.Heredoc */
+      .codehilite .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+      .codehilite .sx { color: #008000 } /* Literal.String.Other */
+      .codehilite .sr { color: #BB6688 } /* Literal.String.Regex */
+      .codehilite .s1 { color: #BA2121 } /* Literal.String.Single */
+      .codehilite .ss { color: #19177C } /* Literal.String.Symbol */
+      .codehilite .bp { color: #008000 } /* Name.Builtin.Pseudo */
+      .codehilite .fm { color: #0000FF } /* Name.Function.Magic */
+      .codehilite .vc { color: #19177C } /* Name.Variable.Class */
+      .codehilite .vg { color: #19177C } /* Name.Variable.Global */
+      .codehilite .vi { color: #19177C } /* Name.Variable.Instance */
+      .codehilite .vm { color: #19177C } /* Name.Variable.Magic */
+      .codehilite .il { color: #666666 } /* Literal.Number.Integer.Long */
+    </style>
+    </head>
+
+
+
+
+
+
+<!-- Here's the header content -->
+
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <!--   <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+          </a>
+        -->
+          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+
+            
+            <li><a style="text-decoration:none" href="A_Home.html" > &nbsp; A_Home &nbsp; </a></li>  <!--&nbsp; is a space -->
+            
+            <li><a style="text-decoration:none" href="B_Import%20Export.html" > &nbsp; B_Import Export &nbsp; </a></li>  <!--&nbsp; is a space -->
+            
+            <li><a style="text-decoration:none" href="C%20-%20Data%20Processing.html" > &nbsp; C - Data Processing &nbsp; </a></li>  <!--&nbsp; is a space -->
+            
+            <li><a style="text-decoration:none" href="D%20-%20Data%20Types.html" > &nbsp; D - Data Types &nbsp; </a></li>  <!--&nbsp; is a space -->
+            
+            <li><a style="text-decoration:none" href="E%20-%20Descriptive%20Statistics.html" > &nbsp; E - Descriptive Statistics &nbsp; </a></li>  <!--&nbsp; is a space -->
+            
+            <li><a style="text-decoration:none" href="F%20-%20SQL%20Databases.html" > &nbsp; F - SQL Databases &nbsp; </a></li>  <!--&nbsp; is a space -->
+            
+            <li><a style="text-decoration:none" href="G%20-%20Useful%20Snippets.html" > &nbsp; G - Useful Snippets &nbsp; </a></li>  <!--&nbsp; is a space -->
+            
+
+
+            <!--
+            <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Import/Export</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Dates and Times</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Data Processing</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">SQL Databases</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark">Useful Snippets</a></li>
+            -->
+          </ul>
+
+        </header>
+      </div>
+
+
+
+
+
+
+
+
+
+<!-- Here's where the blog content will go -->
+  <div class="container">
+      
+
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #e2eaeb;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000202;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+
+
+
+
+  <div class="sidenav">
+
+    
+
+       <a href="F%20-%20SQL%20Databases/SQL%20Databases.md.html" > SQL Databases.md </a>
+
+    
+
+  </div>
+
+
+
+
+<!--
+<div class="sidenav">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#clients">Clients</a>
+  <a href="#contact">Contact</a>
+</div>
+-->
+
+<!-- Here's where the blog content will go -->
+      
+
+
+
+
+<div>
+ <!--&lt;h1&gt;Work with Databases in Python&lt;/h1&gt;
+&lt;h3&gt;Create a database connection&lt;/h3&gt;
+&lt;h6&gt;Get your Password from a file outside your code&lt;/h6&gt;
+&lt;div class=&#34;codehilite&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;c1&#34;&gt;#create a text file and add your pw to the text file&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# store the path to the password file&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;path_password&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;\path&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\t&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;o\where\your\password&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\t&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;extfile&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\&amp;#39;&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# read in the file containing your password and save your password as a var&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;file_password&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path_password&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;r&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;password&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;file_password&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;read&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h6&gt;SQLite Connection&lt;/h6&gt;
+&lt;div class=&#34;codehilite&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sqlite3&lt;/span&gt;  &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sql&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# Create a path to your SQLite DB file&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;db_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;GradeSchool.db&amp;#39;&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;db_path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;/Users/jonahbrown-joel/Library/Mobile Documents/com~apple~CloudDocs/Data Science Cookbook/GradeSchool/Database/&amp;quot;&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;file_path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;db_path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;db_name&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;sqlite_connection&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sql&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;connect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;file_path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;   
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h6&gt;Oracle Connection&lt;/h6&gt;
+&lt;div class=&#34;codehilite&#34;&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class=&#34;c1&#34;&gt;# Create an Oracle connection&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;cx_Oracle&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 2.0 Create a connection string and use it to create a DB engine&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# 2.1 Create a string that you can plug your variables into&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;oracle_connection_string&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;oracle+cx_oracle://&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{username}&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{password}&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;@&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;
+                            &lt;span class=&#34;n&#34;&gt;cx_Oracle&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;makedsn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{hostname}&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{port}&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;service_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{service_name}&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 2.2 Format the connection string&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;formated_oracle_connection_string&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;oracle_connection_string&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;username&lt;/span&gt;     &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;usename&amp;quot;&lt;/span&gt;
+                                                    &lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;password&lt;/span&gt;     &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;oracle_password&amp;quot;&lt;/span&gt;
+                                                    &lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;hostname&lt;/span&gt;     &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;hostname&amp;quot;&lt;/span&gt;
+                                                    &lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;port&lt;/span&gt;         &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;port&amp;quot;&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;# 1571&lt;/span&gt;
+                                                    &lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;service_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Service_name&amp;quot;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 2.3 Use the string to create a database connection&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;Oracle_DB_Engine&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;create_engine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;formated_oracle_connection_string&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h4&gt;SQL Server Connection&lt;/h4&gt;
+&lt;h4&gt;Read Data from a database&lt;/h4&gt;
+&lt;h4&gt;Query a database with SQL&lt;/h4&gt;
+&lt;h4&gt;Load a DF into a database table&lt;/h4&gt; -->
+ <h1>Work with Databases in Python</h1>
+<h3>Create a database connection</h3>
+<h6>Get your Password from a file outside your code</h6>
+<div class="codehilite"><pre><span></span><code><span class="c1">#create a text file and add your pw to the text file</span>
+
+<span class="c1"># store the path to the password file</span>
+<span class="n">path_password</span> <span class="o">=</span> <span class="s1">&#39;\path</span><span class="se">\t</span><span class="s1">o\where\your\password</span><span class="se">\t</span><span class="s1">extfile</span><span class="se">\&#39;</span>
+
+<span class="c1"># read in the file containing your password and save your password as a var</span>
+<span class="n">file_password</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_password</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">file_password</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</code></pre></div>
+
+<h6>SQLite Connection</h6>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sqlite3</span>  <span class="k">as</span> <span class="nn">sql</span>
+
+<span class="c1"># Create a path to your SQLite DB file</span>
+<span class="n">db_name</span> <span class="o">=</span> <span class="s1">&#39;GradeSchool.db&#39;</span>
+<span class="n">db_path</span> <span class="o">=</span> <span class="s2">&quot;/Users/jonahbrown-joel/Library/Mobile Documents/com~apple~CloudDocs/Data Science Cookbook/GradeSchool/Database/&quot;</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">db_path</span> <span class="o">+</span> <span class="n">db_name</span>
+
+<span class="n">sqlite_connection</span> <span class="o">=</span> <span class="n">sql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>   
+</code></pre></div>
+
+<h6>Oracle Connection</h6>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Create an Oracle connection</span>
+<span class="kn">import</span> <span class="nn">cx_Oracle</span>
+
+<span class="c1"># 2.0 Create a connection string and use it to create a DB engine</span>
+<span class="c1"># 2.1 Create a string that you can plug your variables into</span>
+<span class="n">oracle_connection_string</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;oracle+cx_oracle://</span><span class="si">{username}</span><span class="s1">:</span><span class="si">{password}</span><span class="s1">@&#39;</span><span class="o">+</span>
+                            <span class="n">cx_Oracle</span><span class="o">.</span><span class="n">makedsn</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{hostname}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{port}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">service_name</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{service_name}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># 2.2 Format the connection string</span>
+<span class="n">formated_oracle_connection_string</span> <span class="o">=</span> <span class="n">oracle_connection_string</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">username</span>     <span class="o">=</span> <span class="s2">&quot;usename&quot;</span>
+                                                    <span class="p">,</span> <span class="n">password</span>     <span class="o">=</span> <span class="s2">&quot;oracle_password&quot;</span>
+                                                    <span class="p">,</span> <span class="n">hostname</span>     <span class="o">=</span> <span class="s2">&quot;hostname&quot;</span>
+                                                    <span class="p">,</span> <span class="n">port</span>         <span class="o">=</span> <span class="s2">&quot;port&quot;</span>  <span class="c1"># 1571</span>
+                                                    <span class="p">,</span> <span class="n">service_name</span> <span class="o">=</span> <span class="s2">&quot;Service_name&quot;</span><span class="p">)</span>
+
+<span class="c1"># 2.3 Use the string to create a database connection</span>
+<span class="n">Oracle_DB_Engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">formated_oracle_connection_string</span><span class="p">)</span>
+</code></pre></div>
+
+<h4>SQL Server Connection</h4>
+<h4>Read Data from a database</h4>
+<h4>Query a database with SQL</h4>
+<h4>Load a DF into a database table</h4>
+</div>
+
+
+
+</body>
+</html>
+
+      
+
+      </div>
+
+
+<!-- Here's the footer -->
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container">
+    <span class="text-muted">Footer Content goes here.</span>
+  </div>
+</footer>
+
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  </body>
+</html>
